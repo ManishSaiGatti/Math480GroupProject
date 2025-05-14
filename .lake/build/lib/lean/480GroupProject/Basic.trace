@@ -1,0 +1,31 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/Cli/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/batteries/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/Qq/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/aesop/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/importGraph/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/plausible/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/mathlib/.lake/build/lib/lean:/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/build/lib/lean /Users/zaynaaarbi/.elan/toolchains/leanprover--lean4---v4.20.0-rc5/bin/lean -Dpp.unicode.fun=true /Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/480GroupProject/Basic.lean -R /Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject -o /Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/build/lib/lean/480GroupProject/Basic.olean -i /Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/build/lib/lean/480GroupProject/Basic.ilean -c /Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/build/ir/480GroupProject/Basic.c --json",
+   "level": "trace"},
+  {"message":
+   "/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/480GroupProject/Basic.lean:5:0: 1 + 2 = 3 : Prop",
+   "level": "info"},
+  {"message":
+   "/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/480GroupProject/Basic.lean:6:0: SimpleGraph.{u} (V : Type u) : Type u",
+   "level": "info"}],
+ "inputs":
+ [["«480GroupProject».Basic:deps",
+   [["deps",
+     [["«480GroupProject»/«480GroupProject»:extraDep",
+       [["@«480GroupProject»:extraDep", "1723"]]],
+      ["import oleans",
+       [["Mathlib:olean",
+         [["Mathlib:deps", "14425795196807639688"],
+          ["/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean",
+           "3725662242156036264"]]]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.20.0, commit 81b85203c90439fb7d7e0cec32130d62d8cb7a2e",
+   "11339845437623234285"],
+  ["Module.leanArgs: #[-Dpp.unicode.fun=true]", "16183078925686905371"],
+  ["/Users/zaynaaarbi/Documents/University of Washington/Junior Year/Spring 25/MATH 480/Group Project/Math480GroupProject/480GroupProject/Basic.lean",
+   "1517257541678376778"]],
+ "depHash": "15227904906120723823"}

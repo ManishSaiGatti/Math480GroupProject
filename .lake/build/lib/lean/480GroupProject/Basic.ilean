@@ -1,0 +1,1 @@
+{"version":3,"references":{"{\"c\":{\"n\":\"hello\",\"m\":\"«480GroupProject».Basic\"}}":{"usages":[],"definition":[2,4,2,9]},"{\"c\":{\"n\":\"SimpleGraph\",\"m\":\"Mathlib.Combinatorics.SimpleGraph.Basic\"}}":{"usages":[[5,7,5,18]],"definition":null}},"module":"«480GroupProject».Basic"}
