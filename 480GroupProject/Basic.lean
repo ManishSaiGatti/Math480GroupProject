@@ -91,4 +91,14 @@ theorem SimpleGraph.vizing_theorem2 {V : Type u}
     (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
     G.EdgeColorable (G.maxDegree + 1) := by
     --use G.maxDegree + 1
-    sorry
+    -- Base case: if G has no edges then it is trivially colorable with 0 colors
+    let n := G.maxDegree + 1
+    have base_case : n = 0 → G.edgeSet = ∅ := by
+      intro h
+      sorry
+
+    -- Inductive step: if G has less than n edges, we can color it with d+1 colors, where
+    -- d is the maximum degree of G
+    have induction_hypothesis : ∀ (H : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel H.Adj],
+      Fintype.card H.edgeSet < Fintype.card G.edgeSet → H.EdgeColorable (H.maxDegree + 1) := by
+      sorry
