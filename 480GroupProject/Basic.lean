@@ -70,7 +70,6 @@ def SimpleGraph.EdgeColoring.mk_proper {V : Type u} {G : SimpleGraph V}
     G.EdgeColoring α :=
   { color := color }
 
-
 /-- A graph is edge colorable with n colors if there exists a proper edge coloring
     using at most n colors. -/
 def SimpleGraph.EdgeColorable {V : Type u} (G : SimpleGraph V) (n : ℕ) : Prop :=
@@ -83,12 +82,16 @@ theorem SimpleGraph.vizing_theorem {V : Type u}
     (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
     ∃ n : ℕ, n ≤ G.maxDegree + 1 ∧ G.EdgeColorable n := by
     use G.maxDegree + 1
+    constructor
+    · exact Nat.le_refl (G.maxDegree + 1)
+    -- after this step, it is the same with the second formalization
     sorry
+
 
 
 /-- Another way to formalize vizings theorem (via Jarod)-/
 theorem SimpleGraph.vizing_theorem2 {V : Type u}
     (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
     G.EdgeColorable (G.maxDegree + 1) := by
-    --use G.maxDegree + 1
+    -- use G.maxDegree + 1
     sorry
