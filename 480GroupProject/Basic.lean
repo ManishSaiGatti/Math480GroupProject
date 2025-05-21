@@ -93,12 +93,10 @@ theorem SimpleGraph.vizing_theorem3 {V : Type u}
       intros e₁ e₂ hne he
       -- proof by contradiction
       exfalso
-      -- the cardinality of the edge set is 0
-      have h_card_eq_zero : Fintype.card G.edgeSet = 0 := h
       -- if the edge set is empty, then there are no edges to color
       have h_no_elements : ¬ Nonempty G.edgeSet := by
         rw [← Fintype.card_pos_iff]
-        simp [h_card_eq_zero]
+        simp [h]
       -- this means that there are no edges e₁ and e₂
       have h_nonempty : Nonempty G.edgeSet := by
         use e₁
