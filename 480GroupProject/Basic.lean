@@ -91,11 +91,19 @@ theorem SimpleGraph.vizing_theorem3 {V : Type u}
       -- prove that this coloring is proper
       unfold SimpleGraph.EdgeColoring.IsProper
       intros e₁ e₂ hne he
-      unfold myColoring
-      simp
-      apply hne
-      sorry
-
+      -- proof by contradiction
+      exfalso
+      -- the cardinality of the edge set is 0
+      have h_card_eq_zero : Fintype.card G.edgeSet = 0 := h
+      -- if the edge set is empty, then there are no edges to color
+      have h_no_elements : ¬ Nonempty G.edgeSet := by
+        rw [← Fintype.card_pos_iff]
+        simp [h_card_eq_zero]
+      -- this means that there are no edges e₁ and e₂
+      have h_nonempty : Nonempty G.edgeSet := by
+        use e₁
+        exact Subtype.coe_prop e₁
+      contradiction
     -- Inductive step: assume the theorem holds for graphs with n edges
     -- and show it holds for graphs with n+1 edges
     case succ n ih =>
