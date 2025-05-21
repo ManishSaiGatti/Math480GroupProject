@@ -77,47 +77,22 @@ def SimpleGraph.EdgeColorable {V : Type u} (G : SimpleGraph V) (n : ℕ) : Prop 
     ∃ coloring : G.EdgeColoring (Fin n), coloring.IsProper
 
 
-/-- Vizing's theorem: The proper edge coloring of a simple graph is less than or equal to Δ+1,
-    where Δ is the maximum degree of the graph. -/
-theorem SimpleGraph.vizing_theorem {V : Type u}
-    (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
-    ∃ n : ℕ, n ≤ G.maxDegree + 1 ∧ G.EdgeColorable n := by
-    use G.maxDegree + 1
-    constructor
-    · exact Nat.le_refl (G.maxDegree + 1)
-    -- after this step, it is the same with the second formalization
-    sorry
-
-
-
-/-- Another way to formalize vizings theorem (via Jarod)-/
-theorem SimpleGraph.vizing_theorem2 {V : Type u}
-    (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
-    G.EdgeColorable (G.maxDegree + 1) := by
-    --use G.maxDegree + 1
-    -- Base case: if G has no edges then it is trivially colorable with 0 colors
-    let n := G.maxDegree + 1
-    have base_case : n = 0 → G.edgeSet = ∅ := by
-      intro h
-      sorry
-
-    -- Inductive step: if G has less than n edges, we can color it with d+1 colors, where
-    -- d is the maximum degree of G
-    have induction_hypothesis : ∀ (H : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel H.Adj],
-      Fintype.card H.edgeSet < Fintype.card G.edgeSet → H.EdgeColorable (H.maxDegree + 1) := by
-      sorry
-
-
--- different way to write induction
+-- Vizing's theorem and proof
 theorem SimpleGraph.vizing_theorem3 {V : Type u}
     (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
     G.EdgeColorable (G.maxDegree + 1) := by
-    --use G.maxDegree + 1
-    -- Base case: if G has no edges then it is trivially colorable with 0 colors
+  -- We will use induction on the number of edges in G
     induction' h: Fintype.card G.edgeSet with n ih
+    -- Base case: if G has no edges then it is trivially colorable with 0 colors
     case zero =>
       unfold SimpleGraph.EdgeColorable
-      let color := fun G.edgeSet => u
-
+      -- create a coloring that assigns color 0 to all edges
+      let myColoring : G.EdgeColoring (Fin (G.maxDegree+1)) := SimpleGraph.EdgeColoring.mk (fun e => 0)
+      use myColoring
+      -- prove that this coloring is proper
+      unfold SimpleGraph.EdgeColoring.IsProper
+      sorry
+    -- Inductive step: assume the theorem holds for graphs with n edges
+    -- and show it holds for graphs with n+1 edges
     case succ n ih =>
       sorry
