@@ -62,13 +62,14 @@ def SimpleGraph.EdgeColoring.IsProper {V : Type u} {G : SimpleGraph V}
   ∀ e₁ e₂ : G.edgeSet, e₁ ≠ e₂ →
     (∃ v : V, v ∈ e₁.val ∧ v ∈ e₂.val) → coloring.color e₁ ≠ coloring.color e₂
 
-/-- A proper edge coloring constructor with proof of validity. -/
+/- A proper edge coloring constructor with proof of validity.
 def SimpleGraph.EdgeColoring.mk_proper {V : Type u} {G : SimpleGraph V}
     {α : Type v} (color : G.edgeSet → α)
     (valid : ∀ e₁ e₂ : G.edgeSet, e₁ ≠ e₂ →
       (∃ v : V, v ∈ e₁.val ∧ v ∈ e₂.val) → color e₁ ≠ color e₂) :
     G.EdgeColoring α :=
   { color := color }
+-/
 
 /-- A graph is edge colorable with n colors if there exists a proper edge coloring
     using at most n colors. -/
@@ -104,4 +105,19 @@ theorem SimpleGraph.vizing_theorem2 {V : Type u}
     -- d is the maximum degree of G
     have induction_hypothesis : ∀ (H : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel H.Adj],
       Fintype.card H.edgeSet < Fintype.card G.edgeSet → H.EdgeColorable (H.maxDegree + 1) := by
+      sorry
+
+
+-- different way to write induction
+theorem SimpleGraph.vizing_theorem3 {V : Type u}
+    (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
+    G.EdgeColorable (G.maxDegree + 1) := by
+    --use G.maxDegree + 1
+    -- Base case: if G has no edges then it is trivially colorable with 0 colors
+    induction' h: Fintype.card G.edgeSet with n ih
+    case zero =>
+      unfold SimpleGraph.EdgeColorable
+      let color := fun G.edgeSet => u
+
+    case succ n ih =>
       sorry
