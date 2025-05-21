@@ -76,7 +76,6 @@ def SimpleGraph.EdgeColoring.mk_proper {V : Type u} {G : SimpleGraph V}
 def SimpleGraph.EdgeColorable {V : Type u} (G : SimpleGraph V) (n : ℕ) : Prop :=
     ∃ coloring : G.EdgeColoring (Fin n), coloring.IsProper
 
-
 -- Vizing's theorem and proof
 theorem SimpleGraph.vizing_theorem3 {V : Type u}
     (G : FiniteSimpleGraph V) [DecidableEq V] [Fintype V] [DecidableRel G.Adj] :
@@ -86,12 +85,17 @@ theorem SimpleGraph.vizing_theorem3 {V : Type u}
     -- Base case: if G has no edges then it is trivially colorable with 0 colors
     case zero =>
       unfold SimpleGraph.EdgeColorable
-      -- create a coloring that assigns color 0 to all edges
-      let myColoring : G.EdgeColoring (Fin (G.maxDegree+1)) := SimpleGraph.EdgeColoring.mk (fun e => 0)
+      -- create a coloring that assigns color 1 to all edges
+      let myColoring : G.EdgeColoring (Fin (G.maxDegree+1)) := SimpleGraph.EdgeColoring.mk (fun e => 1)
       use myColoring
       -- prove that this coloring is proper
       unfold SimpleGraph.EdgeColoring.IsProper
+      intros e₁ e₂ hne he
+      unfold myColoring
+      simp
+      apply hne
       sorry
+
     -- Inductive step: assume the theorem holds for graphs with n edges
     -- and show it holds for graphs with n+1 edges
     case succ n ih =>
