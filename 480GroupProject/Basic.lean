@@ -105,4 +105,17 @@ theorem SimpleGraph.vizing_theorem3 {V : Type u}
     -- Inductive step: assume the theorem holds for graphs with n edges
     -- and show it holds for graphs with n+1 edges
     case succ n ih =>
-      sorry
+      -- Pick an edge e₀ from G.edgeSet
+      have h_card_pos : 0 < Fintype.card G.edgeSet := by
+        rw [h]
+        exact Nat.zero_lt_succ n
+
+      obtain ⟨e₀, _⟩ := Fintype.card_pos_iff.mp h_card_pos
+
+      -- Remove e₀ from G to get a new graph G'
+      let G' := G.deleteEdges {e₀}
+
+      -- Show that G' has exactly n edges
+      have h_card_G' : Fintype.card G'.edgeSet = n := by
+        sorry
+    sorry
