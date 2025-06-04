@@ -2,8 +2,9 @@
 
 A structural template for formalizing Vizing's Theorem in Lean4 with Mathlib.
 
-What This Is
-This repository provides a proof outline and scaffolding for Vizing's Theorem, which states that any simple graph can be edge-colored using at most Δ + 1 colors (where Δ is the maximum degree).
+What This Is:
+
+- This repository provides a proof outline and scaffolding for Vizing's Theorem, which states that any simple graph can be edge-colored using at most Δ + 1 colors (where Δ is the maximum degree).
 
 The code includes:
 
